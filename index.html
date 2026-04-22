@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Historia de...</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at center, #0d1b2a, #000);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* VIDEO FONDO */
+video.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+}
+
+/* OVERLAY OSCURO */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* PARTÍCULAS */
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* TITULO */
+.title {
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    letter-spacing: 6px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: reveal 2s ease forwards 1s;
+}
+
+.title span {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* SCROLL */
+.scroll {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 2s forwards 3s;
+}
+
+.scroll::after {
+    content: "↓";
+    display: block;
+    font-size: 20px;
+    animation: bounce 1s infinite;
+}
+
+/* SECCIÓN STORY */
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.story {
+    max-width: 800px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.story.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 20px;
+}
+
+/* BOTONES */
+.menu {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    margin: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* ANIMACIONES */
+@keyframes reveal {
+    to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity:1; }
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO AMBIENTE -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8d6d1b3a2.mp3" type="audio/mpeg">
+</audio>
+
+<div class="hero">
+
+    <!-- VIDEO (podés cambiarlo) -->
+    <video class="bg" autoplay muted loop>
+        <source src="https://cdn.coverr.co/videos/coverr-earth-from-space-1573/1080p.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <h1 class="title">
+        LA HISTORIA DE...
+        <span>NO ES SOLO CONTAR — ES SENTIR</span>
+    </h1>
+
+    <div class="scroll">Explorar</div>
+
+</div>
+
+<!-- STORYTELLING -->
+<div class="section">
+    <div class="story">
+        <h2>Todo comenzó con una historia...</h2>
+        <p>Y cada historia tiene un momento que cambió todo.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="story">
+        <h2>Personas. Decisiones. Consecuencias.</h2>
+        <p>El mundo que conocemos es el resultado de cada uno de esos momentos.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="story">
+        <h2>Bienvenido</h2>
+        <p>Estás a punto de ver la historia como nunca antes.</p>
+
+        <div class="menu">
+            <button class="btn" onclick="irPagina('famosos.html')">historias</button>
+            <button class="btn" onclick="alert('Próximamente 🎬')">Videos</button>
+            <button class="btn" onclick="alert('Próximamente 💙')">Sobre mí</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+// PARTICULAS MEJORADAS (SIN BUG DE FONDO)
+for(let i=0;i<80;i++){
+    let p = document.createElement('div');
+    p.className = 'particle';
+
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+
+    document.body.appendChild(p);
+
+    animateParticle(p);
+}
+
+function animateParticle(p){
+    let speed = Math.random() * 0.5 + 0.2;
+
+    function move(){
+        let y = parseFloat(p.style.top);
+        y -= speed;
+
+        if(y < -10){
+            y = window.innerHeight;
+        }
+
+        p.style.top = y + 'px';
+        requestAnimationFrame(move);
+    }
+
+    move();
+}
+
+// SCROLL STORY
+const stories = document.querySelectorAll('.story');
+
+window.addEventListener('scroll', () => {
+    stories.forEach(s => {
+        const top = s.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            s.classList.add('visible');
+        }
+    });
+});
+
+function irPagina(pagina){
+    window.location.href = pagina;
+}
+
+</script>
+
+</body>
+</html>

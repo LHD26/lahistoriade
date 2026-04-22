@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Michael Jackson</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* PORTADA */
+/* PORTADA */
+.portada {
+    height: 100vh;
+    background: url("MJ-imagenes/image001.png") center / cover no-repeat;
+    position: relative;
+}
+.contenedor-titulo {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Cinzel';
+    color: lab(54.01% 3.11 56.04);
+}
+
+h1 { font-size: 95px; margin: 0; }
+
+.michael { opacity: 0; animation: fadeIn 2s forwards; }
+.jackson { opacity: 0; animation: aparecer 0.5s 2s forwards; position: relative; }
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes aparecer { to { opacity: 1; } }
+
+.jackson::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -120%;
+    width: 140%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, hwb(0 100% 0%), #fac020, #a28e20, transparent);
+    animation: brillo 1.2s 2s forwards;
+}
+@keyframes brillo { to { left: 120%; } }
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ===== TITULOS ===== */
+h1, h2 {
+    text-align: center;
+    color: gold;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 60px;
+    text-shadow: 3px 3px 10px black;
+}
+
+h2 {
+    font-size: 32px;
+     margin: 10px 0;
+}
+
+/* ===== SECCIONES ===== */
+.seccion {
+    padding: 0px 10%;
+}
+
+/* ===== CONTENEDOR FLEX GENERAL ===== */
+.fila {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.fila-img {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+/* ===== TEXTO ===== */
+.texto {
+    flex: 1;
+}
+
+/* ===== IMÁGENES GENERALES ===== */
+.img {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFECTO DORADO */
+.img:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 15px gold,
+        0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+/* POSICIONES */
+.Imagenes-derecha {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.img-izquierda {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+/* CONTENEDOR IMAGEN ABAJO */
+.imagen-abajo {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* IMAGEN CENTRADA */
+.Imagenes-centro {
+    width: 12cm;
+    height: 10cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* EFECTO ANIMADO imagenes */
+.efecto-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.efecto-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px gold, 0 0 40px rgba(255,215,0,0.6);
+}
+
+/* ===== MULTI IMAGENES ===== */
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.galeria img {
+    width: 8cm;
+    height: 5cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+}
+
+.galeria1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.galeria1 img {
+    width: 6cm;
+    height: 5cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.galeria1 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+}
+
+.galeria2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.galeria2 img {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.galeria2 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+}
+
+
+.columna-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.columna-imgs img {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== ALBUMS ===== */
+.columna-albums {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.album-container {
+    width: 250px;
+    cursor: pointer;
+}
+
+.album-box {
+    position: relative;
+}
+
+/* IMAGEN ALBUM */
+.album-img {
+    width: 100%;
+    border-radius: 10px;
+    z-index: 2;
+    position: relative;
+
+    animation: latido 1.5s infinite;
+}
+
+/* VINILO SOLO DENTRO DEL ALBUM */
+.album-box .vinilo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+/* CONTENEDOR */
+.album {
+    width: 250px;
+    cursor: pointer;
+}
+
+
+.album-container.activo .album-img {
+    animation: none !important;
+    transform: scale(1);
+    box-shadow: 0 0 15px gold;
+}
+
+/* LATIDO + BRILLO */
+@keyframes latido {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px gold;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px gold, 0 0 40px rgba(255,215,0,0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px gold;
+    }
+}
+
+
+/* AL HACER CLICK → SALE */
+.album-container.activo .vinilo {
+    transform: translateX(60%);
+}
+
+/* EFECTO LLAMATIVO (CLICK) */
+.album img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px gold;
+}
+
+/* ANIMACIÓN "CLICK ME" */
+.album::after {
+    content: "CLICK";
+    position: absolute;
+    color: gold;
+    font-size: 14px;
+    opacity: 0.8;
+    animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* INFO OCULTA */
+.info-album {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+
+    transition: max-height 0.6s ease, padding 0.3s ease;
+}
+
+/* ABIERTO */
+.album-container.activo .info-album {
+    max-height: 2000px;
+    padding: 15px;
+}
+
+/* TEXTO */
+.info-album p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ===== LAYOUT ALBUM + TEXTO ===== */
+.contenido {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* TEXTO AL LADO */
+.lado-texto {
+    flex: 1;
+}
+
+/* ===== RESPONSIVE (opcional pero pro) ===== */
+@media (max-width: 768px) {
+
+    .fila {
+        flex-direction: column;
+    }
+
+    .contenido {
+        flex-direction: column;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+
+    .columna-albums {
+        align-items: center;
+    }
+}
+
+.fila-3 {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.col-album {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.col-texto {
+    flex: 1;
+}
+
+.col-img img {
+    width: 6cm;
+    height: 8cm;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.columna-fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* IMAGENES */
+.img-col {
+    width: 5.5cm;
+    height: 7.5cm;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.imagenes-dobles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* 🔥 importante para responsive */
+}
+
+.imagenes-dobles img {
+    width: 6.12cm;
+    height: 8.12cm;
+    object-fit: cover;
+}
+
+.imagenes-lado {
+    display: flex;
+    flex-direction: column; /* 🔥 una arriba de la otra */
+    gap: 15px;
+}
+
+.imagenes-lado img {
+    width: 10.12cm;
+    height: 8.12cm;
+    object-fit: cover;
+}
+
+.columna-albums.thisisit {
+    margin-top: 180px;
+}
+
+.final-mj {
+    background: black;
+    color: white;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.texto-final {
+    font-size: 20px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.cta {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: gold;
+}
+
+/* CONTENIDO */
+.final-contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* REDES */
+.redes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.red {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* COLORES */
+.instagram { background: linear-gradient(45deg, #feda75, #d62976, #962fbf); }
+.facebook { background: #1877f2; }
+.tiktok { background: #111; border: 1px solid #fff; }
+.youtube { background: red; }
+
+.red:hover {
+    transform: scale(1.1);
+}
+
+/* VIDEO */
+.video iframe {
+    width: 500px;
+    height: 280px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,215,0,0.3);
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+p { margin-bottom: 12px; }
+h2 { margin: 40px 0 15px; }
+.fila-img { margin-bottom: 25px; }
+
+section {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#donacion-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 220px;
+    background: #111;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    animation: aparecer 0.5s ease;
+}
+
+#donacion-box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.btn-donar {
+    display: block;
+    text-align: center;
+    background: gold;
+    color: black;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#cerrar-donacion {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+@keyframes aparecer {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+</style>
+</head>
+<script>
+function toggleAlbum(album) {
+    album.classList.toggle("abierto");
+}
+
+</script>
+<script>
+function toggleAlbum(album) {
+    album.classList.toggle("abierto");
+
+    if (album.classList.contains("abierto")) {
+        album.style.animation = "none";
+    }
+}
+</script>
+<body>
+
+<div class="portada">
+    <div class="contenedor-titulo">
+        <h1 class="michael">Michael</h1>
+        <h1 class="jackson">Jackson</h1>
+    </div>
+</div>
+
+<!-- SECCIÓN 1 -->
+<section class="seccion">
+
+<h2>Infancia y primeros años</h2>
+
+<div class="fila-img">
+
+    <div class="texto">
+        <p>Michael Joseph Jackson nació el 29 de agosto de 1958 en Gary, Indiana, Estados Unidos.</p>
+
+        <p>Fue el octavo hijo de Joseph y Katherine Jackson, una familia afroamericana de clase trabajadora que vivía en una casa de 2 habitaciones.</p>
+
+        <p>Michael era un niño tímido, sensible y observador, muy apegado a su madre, pero con gran temor a su padre, que lo solía castigar física y verbalmente.</p>
+    
+        <h2>Jackson 5 y <br>El primer estrellato</h2> 
+    
+        <p>Antes de que Michael Jackson sea el genio solitario conocido mundialmente, existió “The Jackson 5” (anteriormente: The Jackson Brothers) grupo formado por: Tito, Jackie, Jermaine, Marlon y Michael Jackson en 1965 y creado por su padre Joe Jackson.</p>
+
+        <p>Con la banda tocando en varios estados, los Jackson empezaban a ser mas reconocidos dentro de los Estados Unidos, gracias a la ayuda y apadrinamiento artístico de Diana Ross, con quien llegaron a más estados del país con éxitos como: ABC, I Want You Back, The Love You Save y I´ll Be There.</p>
+
+        <p>Con Michael como figura principal los Jackson 5 empezaban a llegar a programas de televisión como “The Ed Sullivan Show” y en premios como los Oscar de 1973.</p>
+
+        <p>Al mismo tiempo la disquera de los Jackson, Motown Records, decide probar grabar álbumes de Michael, pero como solitario, de lo que salen: Got To Be There y Ben (1972), Music And Me (1973) y Forever, Michael (1975).</p>
+
+    </div>
+
+    <div class="columna-fotos">
+      
+      <img src="MJ-imagenes/image002.png" class="Imagenes-derecha efecto-img">
+      <img src="MJ-imagenes/image003.png" class="Imagenes-derecha efecto-img">
+
+    </div>
+</div>
+</section>
+
+<section class="seccion">
+
+<h2>Inicio de su carrera solista</h2>
+
+<div class="texto">
+<p>
+Si bien para 1978 Michael Jackson aún era parte de la banda “The Jackson´s”, ya se iba separando poco a poco, al igual que sus hermanos mayores. Durante ese año Michael junto a Diana Ross protagonizan “The Wiz”, en esa producción conoce a Quincy Jones (productor musical) junto a él y mezclando estilos como Disco, Funk, R&B, Pop, Jazz, y Soul lanzan el álbum “Off The Wall” el 10 de agosto de 1979.
+</p>
+</div>
+
+<!-- ALBUMS + TEXTO -->
+<div class="fila-img">
+
+    <div class="columna-albums">
+
+        <!-- OFF THE WALL -->
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+            <div class="album-box">
+                <img src="MJ-imagenes/image004.jpg" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <strong>Off The Wall</strong><br><br>
+
+                <strong>Lanzamiento:</strong><br>
+                10 de agosto, 1979<br><br>
+
+                <strong>Ventas:</strong><br>
+                +20.000.000 de copias<br><br>
+
+                <strong>Records:</strong><br>
+                certificado 9 veces platino y luego Diamante en EE. UU. (10 millones) 
+                Primer álbum en la historia en tener 4 sencillos en el top 10 del Billboard Hot 100:
+                «Don't Stop 'Til You Get Enough», «Rock with You», «She's Out of My Life» y «Off the Wall».<br><br>
+
+                <strong>Premios:</strong><br>
+                5 AMA’s (1980-1981)<br>
+                1 Grammy (1980)<br>
+                2 Billboard MA’s (1980)<br>
+                1 Cashbox Awards (1980)<br>
+                1 BPI awards (1981)<br>
+                1 NAACP Image Awards (1981)
+            </div>
+        </div>
+
+        <!-- THRILLER -->
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+            <div class="album-box">
+                <img src="MJ-imagenes/image005.png" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <strong>Thriller</strong><br><br>
+
+                <strong>Lanzamiento:</strong><br>
+                30 de noviembre, 1982<br><br>
+
+                <strong>Ventas:</strong><br>
+                +70.000.000 de copias (aprox.)<br><br>
+
+                <strong>Records:</strong><br>
+                Álbum más vendido de la historia.<br>
+                7 sencillos en el top 10 del Billboard Hot 100.<br>
+                Primer álbum en ganar 8 Grammy en una noche.<br><br>
+
+                <strong>Premios:</strong><br>
+                8 Grammy Awards (1984)<br>
+                2 American Music Awards (1984)<br>
+                8 American Music Awards (1983)<br>
+                3 MTV Video Music Awards (1984)<br>
+                1 Brit Award (1984)
+            </div>
+        </div>
+
+    </div>
+
+    <div class="texto">
+
+        <p>
+        Si bien el álbum fue un éxito y rompió récords Jackson lo quería hacer aún mejor y trabajando nuevamente con Quincy Jones empezó la producción de “Thriller”.
+        </p>
+
+        <p>
+        Con un presupuesto de U$D750.000 y la producción casi completa de Michael se mezclaron Pop, Rock, R&B, Funk, Soul y toda la tecnología moderna de la época.
+        </p>
+
+        <p>
+        El resultado fue un álbum con éxitos como: Billie Jean, Thriller, Beat It, PYT y The Girl Is Mine (junto a Paul McCartney) y se lanzó el 30 de noviembre de 1982,
+        llegando rápidamente al #1 de los Billboards, donde se mantuvo por 39 semanas consecutivas en más de 30 países y vendió más de 1.000.000 de copias por semana.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- NUEVA SECCION -->
+<h2>Salida de The Jackson’s y Solista total</h2>
+
+<div class="texto">
+
+<p>Durante el evento Motown 25: Yesterday, Today Forever, Michael participo junto a sus hermanos, cantando un popurrí de canciones de la banda hasta que, al terminar, Michael quedo solo en el escenario y empezó su propio show, cantando Billie Jean y haciendo por primera vez el “Moonwalk”, dando así por terminada su etapa con “The Jackson’s” y empezando su carrera 100% solista.</p>
+
+<p>Lo primero que lanzo como solista fue el videoclip de “Thriller”, inspirándose en la película “Un hombre lobo americano” creo el primer cortometraje musical de la historia, el cual, a un año del lanzamiento del álbum, causo un aumento increíble de ventas y consolido su éxito rotundo en premios, récords y la industria musical en general.</p>
+
+</div>
+
+<!-- TEXTO + IMAGEN -->
+<div class="fila-img">
+
+    <div class="texto">
+        <p>
+        Esto le sirvió para la creación del himno humanitario “We Are The World”. En un principio la idea era hacerla en dueto con Lionel Richie, pero la idea cambio para tener a TODOS los artistas más exitosos del mundo en un proyecto humanitario que logro recaudar U$D 63.000.000 para ayudar a Africa.
+        </p>
+    </div>
+
+    <div class="img-derecha">
+        <img src="MJ-imagenes/image006.jpg" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+<!-- NUEVA SECCION -->
+<h2>El cambio desde Bad</h2>
+
+<div class="texto">
+<p>El 31 de agosto de 1987, Michael Jackson lanza Bad, un álbum para el que escribió 60 canciones (de las que use solo 10) y trabajo durante dos años, con un solo propósito: posicionarse como alguien fuerte y maduro dentro de la industria. Rápidamente Bad llego al #1 en 25 países con canciones como: Bad (versión completa de 18 minutos), The Way You Make Me Feel, Smooth Criminal, Leave Me Alone, Dirty Diana y Men In The Mirror.</p>
+</div>
+
+<!-- BAD -->
+<div class="fila-img">
+
+    <div class="columna-albums">
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+            <div class="album-box">
+                <img src="MJ-imagenes/image007.png" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>Bad</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                31 de agosto, 1987</p>
+
+                <p><strong>Ventas:</strong><br>
+                +35.000.000 de copias (aprox.)</p>
+
+                <p><strong>Records:</strong><br>
+                Primer álbum en la historia en tener 5 sencillos consecutivos en el puesto #1 del Billboard Hot 100. 
+                9 sencillos dentro del top 10. Consolidó el dominio global de Michael Jackson tras Thriller.</p>
+
+                <p><strong>Premios:</strong><br>
+                2 Grammy Awards (1988-1990)<br>
+                2 American Music Awards (1988)<br>
+                1 Brit Award (1988)<br>
+                1 MTV Video Music Award (1988)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="texto">
+        <p>Con Bad llegó la primera gira mundial, el Bad World Tour con 123 conciertos, 15 países y 4,4 millones de asistentes.</p>
+
+        <p>Además de lanzar Bad, en 1988 Michael incursiona de nuevo en el cine con su película de ficción “Moonwalker” y compra el rancho “Neverland”, un espacio de unas 1.000 hectáreas que le costó al rededor de U$D17.000.000 y se ubica en Santa Ynes Valley, California, donde construyo una gran mansión, un parque de diversiones y un zoológico, entre otras cosas.</p>
+    </div>
+
+</div>
+</section>
+
+<section class="seccion">
+
+<h2>Inicio de Los 90´s y “El Rey del Pop”</h2> 
+
+<!-- TEXTO + IMAGEN DERECHA -->
+<div class="fila-img">
+
+    <div class="texto">
+
+        <p>En 1989 Michael Jackson es nombrado por primera vez como: “El Rey del Pop” por su amiga Elizabeth Taylor, durante los premios AMA’s donde le entregaron el Premio a Artista de la década.</p>
+
+        <p>Pero no todo era felicidad en la vida de Michael, entre tanto éxito también le llovían críticas de los medios por su vida privada, cirugías plásticas y (según ellos) su “extraño estilo de vida”, llamándolo con sobrenombres como: Wacko Jacko y burlándose hasta de su color de piel que empezaba a cambiar a causa de una enfermedad llamada “Vitíligo” que destruye la pigmentación de la piel.</p>
+
+    </div>
+
+    <!-- IMAGEN DERECHA -->
+    <img src="MJ-imagenes/image008.png" class="Imagenes-derecha efecto-img">
+
+</div>
+
+<!-- GALERÍA ABAJO -->
+<div class="galeria">
+    <img src="MJ-imagenes/image009.png" class="efecto-img">
+    <img src="MJ-imagenes/image010.png" class="efecto-img">
+    <img src="MJ-imagenes/image011.png" class="efecto-img">
+</div>
+</section>
+
+<section class="seccion">
+
+<h2>El estrellato de los 90’s y los primeros problemas</h2>
+
+<!-- BLOQUE 1: DANGEROUS -->
+<div class="fila-img">
+
+    <div class="columna-albums">
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+
+            <div class="album-box">
+                <img src="MJ-imagenes/image012.jpg" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>Dangerous</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                26 de noviembre, 1991</p>
+
+                <p><strong>Ventas:</strong><br>
+                +32.000.000 de copias (aprox.)</p>
+
+                <p><strong>Records:</strong><br>
+                9 sencillos dentro del top 10 del Billboard Hot 100.<br>
+                Incluye el sencillo «Black or White», que debutó en el puesto #1 en múltiples países.<br>
+                Álbum clave en la incorporación del sonido new jack swing al pop global.<br>
+                Consolidó la transición artística de Michael Jackson en los 90s.</p>
+
+                <p><strong>Premios:</strong><br>
+                1 Grammy Award (1993)<br>
+                4 American Music Awards (1993)<br>
+                3 Billboard Music Awards (1993)<br>
+                1 Brit Award (1993)</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="texto">
+        <p>El 26 de noviembre de 1991 Michael lanza “Dangerous”, un álbum que cambia el estilo del Rey del pop a sonidos más modernos y agresivos como el Hip Hop, R&B y el New Jack Swing y dejando de trabajar con Quincy Jones como productor. El álbum contó con canciones como Black Or White (censurado en algunos países), Remember The Time, In The Closet (censurado por partes sensuales), Heal The World y Will You Be There.</p>
+
+        <p>Con el álbum llegó otra gran gira mundial, el Dangerous World Tour, transmitido por MTV y siendo 69 conciertos en 27 países y con más de 3.500.000 asistentes, pero en plena gira la polémica empieza…</p>
+    </div>
+
+</div>
+
+<!-- BLOQUE 2 -->
+<div class="fila-img">
+
+    <div class="texto">
+        <p>En 1993 la familia de Jordy Chandler denunció a Michael Jackson por abuso sexual, lo que Michael negó rotundamente, pero los medios utilizaban en su contra y lo explotaban. La denuncia terminó en un acuerdo monetario entre ambas partes por U$D 20.000.000.</p>
+
+        <p>A pesar de la denuncia Michael no paró y en 1993 hace el que sería el primer halftime del Super Bowl de la historia durante el Super Bowl XXVII de 1993 y dos años después, el 20 de junio de 1995 lanza el álbum “HIStory”, un álbum que se volvió su catarsis para responder a todo lo que le acusaban y a la presión que vivía, contando con canciones como Scream, They Don’t Care About Us, Stranger In Moscow y Earth Song (censurada en EE.UU por mostrar la crueldad contra animales y la naturaleza de parte de los humanos). Con este álbum también vino una gira, el “HIStory World Tour”, estando en 35 países, con 82 conciertos y 4.500.000 asistentes.</p>
+    </div>
+
+    <img src="MJ-imagenes/image013.jpg" class="Imagenes-derecha efecto-img">
+
+</div>
+
+<!-- BLOQUE 3: HIStory -->
+<div class="fila-img">
+
+    <div class="columna-albums">
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+
+            <div class="album-box">
+                <img src="MJ-imagenes/image014.jpg" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>HIStory</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                20 de junio, 1995</p>
+
+                <p><strong>Ventas:</strong><br>
+                +20.000.000 de copias (aprox.) (+40.000.000 contando como álbum doble)</p>
+
+                <p><strong>Records:</strong><br>
+                Álbum doble más vendido de la historia.<br>
+                15 sencillos lanzados.<br>
+                Incluye «You Are Not Alone», primera canción en debutar en el #1 del Billboard Hot 100.<br>
+                Fuerte contenido social y político.</p>
+
+                <p><strong>Premios:</strong><br>
+                1 Grammy Award (1996)<br>
+                5 MTV Video Music Awards (1995–1996)<br>
+                2 American Music Awards (1996)<br>
+                1 Brit Award (1996)</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="texto-1995">
+        <p>En 1994 Michael en lo personal se casa con Lisa Marie Presley, la hija de Elvis Presley, con quien no duró mucho ya que en 1996 se divorciaron por la presión mediática, las inseguridades de Michael y conflictos emocionales.</p>
+
+        <p>Pero en medio de eso, en 1995 Michael Jackson participa en los premios MTV Music Awards</p>
+
+        <p>1995 interpretando un popurrí de sus canciones más exitosas, desde Billie Jean hasta Dangerous cerrando la noche con You Are Not Alone, que había dedicado a su aún esposa Lisa.</p>
+
+        <p>En 1997 se vuelve a casar, esta vez con Debbie Rowe con quien tuvo su primer hijo, Prince Michael Jackson Jr.</p>
+    
+        <p>Ese mismo año Michael lanza el álbum “Blood On The Dance Floor” mientras esperaba el nacimiento de su segunda hija, Paris Jackson. El álbum trajo canciones nuevas como Morphine, Ghost (un cortometraje de 39 min. donde critica a la sociedad que lo demonizaba, de él salen canciones como Is It Scary y Ghost).</p>
+    
+    </div>
+
+</div>
+
+<!-- BLOQUE: ÁLBUM + GALERÍA (JUNTOS) -->
+<div class="fila-img">
+
+    <!-- ÁLBUM -->
+    <div class="columna-albums">
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+
+            <div class="album-box">
+                <img src="MJ-imagenes/image017.png" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>Blood On The Dance Floor</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                21 de marzo, 1997</p>
+
+                <p><strong>Ventas:</strong><br>
+                +6.000.000 de copias (aprox.)</p>
+
+                <p><strong>Records:</strong><br>
+                Incluye 5 canciones nuevas: «Blood on the Dance Floor», «Morphine», «Superfly Sister», «Ghosts» y «Is It Scary».<br>
+                «Blood on the Dance Floor» alcanzó el #1 en varios países.<br>
+                Proyecto que mezcla material inédito con remixes de HIStory, expandiendo el universo musical de Michael Jackson.</p>
+
+                <p><strong>Premios:</strong><br>
+                MTV Video Music Award (1997)<br>
+                1 American Music Award (1997)</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GALERÍA -->
+    <div class="galeria2">
+        <img src="MJ-imagenes/image015.png" class="Imagenes-derecha efecto-img">
+        <img src="MJ-imagenes/image016.png" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+</section>
+
+<section class="seccion">
+
+<h2>Michael en el nuevo milenio</h2>
+
+<!-- FILA 1 -->
+<div class="fila-img">
+
+    <div class="texto">
+        <p>Para el año 2000 Michael se mostraba mas recluido, viviendo en Neverland Ranch junto a sus hijos, casi sin apariciones públicos, excepto durante los World Music Awards en Monaco, donde recibió el premio a “artista del milenio”.</p>
+        <p>En 2001, Michael anuncia su vuelta a la música para lanzar el álbum “Invincible”, lo cual no fue nada fácil ya que Michael estaba en pleno conflicto con Sony Music y en especial con Tommy Mottola, quienes le cortaron el presupuesto para la promoción del álbum y lo llevaron al mayor fracaso artístico de su carrera.</p>
+    </div>
+
+    <div class="img-derecha">
+        <img src="MJ-imagenes/image018.jpg" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+<!-- FILA 2 -->
+<div class="fila-img">
+
+    <!-- ALBUM -->
+    <div class="columna-albums">
+
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+            <div class="album-box">
+                <img src="MJ-imagenes/image019.png" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>Invincible</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                30 de octubre, 2001</p>
+
+                <p><strong>Ventas:</strong><br>
+                +10.000.000 de copias (aprox.)</p>
+
+                <p><strong>Records:</strong><br>
+                Álbum más costoso de la historia al momento de su lanzamiento (más de 30 millones de dólares de producción).<br>
+                Debutó en el #1 en múltiples países.<br>
+                Incluye éxitos como «You Rock My World» y «Butterflies». Último álbum de estudio lanzado en vida por Michael Jackson.</p>
+
+                <p><strong>Premios:</strong><br>
+                1 American Music Award (2002)<br>
+                1 Billboard Music Award (2002)</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="texto">
+
+     <p>Este mismo año, Michael cumplía 30 años como solista y los festejo el 7 y 10 de septiembre en el Madison Square Garden, junto a sus hermanos y otros artistas como Whitney Houston, Usher, Britney Spears y Destiny’s Child, entre otros.</p>
+
+     <p>Tras el atentado a las Torres Gemelas Michael reúne a un gran grupo de artistas para un gran concierto benéfico en octubre del 2001, pero para estas fechas los problemas empezaban a aparecer.</p>
+
+     <!-- IMÁGENES -->
+     <div class="galeria1">
+       <img src="MJ-imagenes/30 aniversario.jpg" class="efecto-img">
+       <img src="MJ-imagenes/concierto 911.jpg" class="efecto-img">
+     </div>
+
+    </div>
+</div>
+
+<div class="fila-img">
+
+    <!-- TEXTO -->
+    <div class="texto">
+        <p>
+        Llegado 2002 la salud de Michael Jackson se veía deteriorada, se lo veía muy delgado, sensible y según cercanos empezaba a tomar medicinas para dormir y para la ansiedad, aun así, continuaba su lucha contra Sony rodeado de polémicas como mostrar a su hijo desde un balcón en Berlín.
+        </p>
+        <p>Pero las polémicas explotarían más en 2003, cuando Martin Bashir lanza el documental “Living With Michael Jackson”, donde lo retrato como excéntrico y edito el documental para hacerlo quedar mal (cosa que ya había hecho años antes con Lady Diana).</p>
+
+        
+    </div>
+
+    <!-- IMAGEN DERECHA -->
+    <div class="img-derecha">
+        <img src="MJ-imagenes/image020.png" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+<div class="fila-img">
+
+    <!-- IMAGEN IZQUIERDA -->
+    <div class="img-izquierda">
+        <img src="MJ-imagenes/image021.png" class="Imagenes-izquierda efecto-img">
+    </div>
+
+    <!-- TEXTO -->
+    <div class="texto">      
+        <p>En dicho documental resaltó mucho una parte donde aparece Gavin Arvizo, un niño con cáncer que luego denunció a Michael por abuso sexual e intoxicación alcohólica a un menor.</p>
+
+        <p>El caso escaló hasta pedir el arresto del Rey del Pop, que se llevó a cabo el 20 de noviembre del 2003. Esas imágenes dieron vuelta el mundo y dieron inicio a un largo periodo legal para el “Juicio del Siglo”, llevado a cabo durante 2005 y que terminaron en un Michael Jackson destrozado por la prensa, con una salud general muy mala y con un veredicto dado el 13 de junio, en el que el jurado declaró que Michael Jackson, El Rey del Pop, era totalmente inocente de todos y cada uno de los cargos presentados.</p>
+    </div>
+
+</div>
+
+
+<!-- BLOQUE 1 -->
+<div class="fila-img">
+
+    <!-- TEXTO -->
+    <div class="texto">
+        <p>Tras los juicios Michael abandona Neverland y se muda a Bahréin donde se recluye y su única aparición pública es en los World Music Awards donde recibe el premio Diamond por ser el artista con más ventas en toda la historia.</p>
+    </div>
+
+    <!-- IMÁGENES DERECHA (2 juntas) -->
+    <div class="img-derecha doble">
+        <img src="MJ-imagenes/bahrein.jpg" class="Imagenes-derecha efecto-img">
+        <img src="MJ-imagenes/image022.png" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+
+<!-- BLOQUE 2 -->
+<div class="fila-img">
+
+    <!-- TEXTO -->
+    <div class="texto">
+        <p>Pensando en retirarse Michael anuncia en 2009 la gira “This Is It” pensada para hacer 50 conciertos y agotando en pocas horas más de 750.000 entradas.</p>
+        <p>El 24 de junio, después de meses de ensayos, se realiza el último ensayo, con toda la energía Michael ensaya “Earth Song” y se despide de su equipo con un discurso motivacional.</p>
+    </div>
+    
+    <div class="galeria2">
+       <img src="MJ-imagenes/thisisit.png" class="efecto-img">
+       <img src="MJ-imagenes/ultimoensayo.jpg" class="efecto-img">
+    </div>
+    
+</div>
+
+</section>
+<section class="seccion">
+
+<h2>Muerte del Rey del Pop</h2>
+
+<div class="fila-img">
+   
+    <div class="texto">
+     <p>Durante la madrugada del 25 de junio del 2009, el doctor Conrad Murray ve que Michael no podía dormir, y le aplica diversos calmantes, ninguno le hacía efecto y entonces decide aplicarle una fuerte dosis de “Propofol” (un calmante muy fuerte, reservado para cirugías y dado en dosis MUY cuidadas) que le ayuda a conciliar el sueño.</p>
+
+     <p>Con Michael dormido Murray se retira, sin vigilancia Michael Jackson entra en un paro cardiorrespiratorio cuando el doctor llega trata de hacer RCP, pero Michael no reaccionaba, un rato después una ambulancia se lleva de urgencia al Rey del pop al hospital, pero al llegar ya era muy tarde, Michael Jackson, El Rey del Pop, había fallecido a sus 50 años…</p>
+   </div>  
+   
+   <div class="galeria">
+      <img src="MJ-imagenes/image024.jpg" class="Imagenes-derecha efecto-img ">
+   </div> 
+
+</div>
+
+</section>
+<section class="seccion">
+
+<h2>Reacción Mundial</h2>
+
+<!-- PRIMER BLOQUE: TEXTO + IMAGEN DERECHA -->
+<div class="fila-img">
+
+    <div class="texto">
+        <p>El primero en dar la noticia fue el medio TMZ y de allí los demás medios esparcieron la noticia de la muerte de la mayor leyenda musical de la historia…</p>
+    </div>
+
+</div>
+
+<!-- RESTO DEL TEXTO -->
+<div class="texto">
+
+    <p>Al enterarse de la noticia, sus fans lloraban en las calles de todo el mundo y se organizaban para hacer homenajes en distintos puntos del mundo, llegando a colapsar el internet y hacer que plataformas como Google, YouTube, Facebook, etc. caigan por la cantidad de búsquedas para confirmar si de verdad Michael había muerto o no…</p>
+
+    <p>El funeral se llevó a cabo el 7 de julio del 2009 en el Staples Center de Los Ángeles donde sus fans, amigos y familiares se despidieron del Rey del Pop y artistas como Mariah Carey, Smokey Robinson, Lionel Richie, Usher, Stevie Wonder y más, cantaron y recordaron a Michael Jackson de manera muy emotiva. Entre llantos y suspiros y al ritmo de Men In The Mirror el mundo veía como el ataúd del Rey del Pop forrado con rosas rojas se iba para siempre, para ser enterrado meses después en el Great Mausoleum del cementerio Forest Lawn en California y se lanzó como álbum póstumo “This Is It” junto a una película del mismo nombre.</p>
+
+</div>
+
+<!-- FILA: ALBUM + IMAGENES -->
+<div class="fila-img">
+
+    <div class="columna-albums thisisit">
+        <div class="album-container" onclick="this.classList.toggle('activo')">
+
+            <div class="album-box">
+                <img src="MJ-imagenes/image026.jpg" class="album-img">
+                <img src="MJ-imagenes/image004.1.png" class="vinilo">
+            </div>
+
+            <div class="info-album">
+                <p><strong>This Is It</strong></p>
+
+                <p><strong>Lanzamiento:</strong><br>
+                29 de septiembre, 2009</p>
+
+                <p><strong>Ventas:</strong><br>
+                +5.000.000 de copias (aprox.)</p>
+
+                <p><strong>Records:</strong><br>
+                Álbum póstumo lanzado tras la muerte de Michael Jackson, album postumo mas exitoso de la historia. Banda sonora del documental This Is It Incluye versiones remasterizadas de sus mayores éxitos y la canción inédita «This Is It».
+                Debutó en el #1 en varios países</p>
+
+                <p><strong>Premios:</strong><br>
+                1 American Music Award (2010)<br>
+                1 NAACP Image Award (2011)<br>
+                1 Grammy Award (2011)</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="imagenes-lado">
+        <img src="MJ-imagenes/image027.jpg" class="Imagenes-derecha efecto-img">
+        <img src="MJ-imagenes/image028.png" class="Imagenes-derecha efecto-img">
+    </div>
+
+</div>
+
+<!-- TEXTO FINAL -->
+<div class="texto">
+
+    <p>Su funeral es hasta el día de hoy el más visto de todos los tiempos con 2.500.000 de personas viéndolo en persona y por medios como la televisión y las pocas redes sociales existentes…</p>
+
+    <p>Conrad Murray fue llevado a juicio y en 2011, durante los juicios por la muerte del Rey del Pop es condenado a 4 años de prisión, que NO cumplió completamente al salir en 2 años por buen comportamiento…</p>
+
+    <p>Michael Jackson dejo un legado imborrable en la historia de la humanidad, siendo el mayor artista de todos los tiempos, el más revolucionario, ganando más de 800 premios, rompiendo récords e inspirando a miles de nuevos artistas actuales. Su legado no se queda solo en la música, Michael también dejo su huella en la moda con sus increíbles trajes, en lo audiovisual con su revolución en los videoclips y la forma de hacerlo, y hasta en lo humanitario siendo la persona que más dono a organizaciones benéficas en toda la historia, siempre luchando por buenas causas y quedando como un símbolo humanitario total.</p>
+
+    <p>Michael Jackson no fue solo un cantante fue una fuerza cultural que revolucionó todo como nadie en la historia del arte, un niño que paso de ser pobre a estar en todos los podios, listas y récords sin la existencia de internet ni redes sociales, conquistando al mundo con auténtico talento. Un verdadero Rey.</p>
+
+</div>
+</section>
+
+<section class="final-mj">
+
+    <h3 class="cta">
+        Si quieres ver más sobre Michael Jackson haz clic aquí
+    </h3>
+
+    <div class="final-contenido">
+
+        <!-- REDES -->
+        <div class="redes">
+
+            <a href="#" class="red instagram">@lahistoriade25</a>
+            <a href="#" class="red facebook">@la.historia.de.25</a>
+            <a href="#" class="red tiktok">@la.historia.de24</a>
+            <a href="#" class="red youtube">@lahistoriade-2408</a>
+
+        </div>
+
+        <!-- VIDEO -->
+        <div class="video">
+            <iframe 
+                src="https://www.youtube.com/embed/ON1LCdFXFvw" 
+                title="La Historia de Michael Jackson, El Rey del Pop"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+<div id="donacion-box">
+
+    <span id="cerrar-donacion">&times;</span>
+
+    <p>¿Te gusta este proyecto?</p>
+    <p>Podés apoyarlo acá 👇</p>
+
+    <a href="link.mercadopago.com.ar/lahistoriade" target="_blank" class="btn-donar">
+    Apoyar con Mercado Pago ar 💙
+    </a>
+
+    <a href="https://paypal.me/franciscomagaldi" target="_blank" class="btn-donar paypal">
+    Apoyar con PayPal 🌎
+    </a>
+
+</div>
+
+<script>
+document.getElementById("cerrar-donacion").onclick = function() {
+    document.getElementById("donacion-box").style.display = "none";
+}
+</script>
+
+</body>
+</html>

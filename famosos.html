@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biografías - La Historia de...</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Inter',sans-serif;
+    background: radial-gradient(circle at center, #0d1b2a, #000);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HEADER CINEMÁTICO */
+.header{
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+
+.header::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: linear-gradient(to bottom, transparent, #000);
+}
+
+h1{
+    font-family:'Cinzel',serif;
+    font-size:50px;
+    letter-spacing:5px;
+    z-index:2;
+    animation:fadeUp 1.5s ease forwards;
+}
+
+.sub{
+    margin-top:10px;
+    opacity:0.7;
+    font-size:14px;
+    letter-spacing:3px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+/* CARD */
+.card{
+    position:relative;
+    height:300px;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(0.6);
+    transition:0.5s;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+    filter:brightness(0.9);
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: linear-gradient(to top, black, transparent);
+    top:0;
+}
+
+.name{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    font-family:'Cinzel',serif;
+    font-size:20px;
+    z-index:2;
+}
+
+/* BOTÓN VOLVER */
+.back{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+button{
+    padding:12px 25px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.3);
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:white;
+    color:black;
+    transform:scale(1.1);
+}
+
+/* PARTÍCULAS */
+.particle{
+    position:fixed;
+    width:2px;
+    height:2px;
+    background:white;
+    opacity:0.5;
+    pointer-events:none;
+}
+
+/* ANIMACIONES */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div>
+        <h1>FAMOSOS</h1>
+        <div class="sub">Cada leyenda tiene una historia</div>
+    </div>
+</div>
+
+<div class="grid">
+
+    <div class="card" onclick="irMJ()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Michael_Jackson_in_1988.jpg">
+        <div class="name">Michael Jackson</div>
+    </div>
+
+    <div class="card" onclick="alert('Próximamente ⚽')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Leo_Messi_20180626.jpg">
+        <div class="name">Lionel Messi</div>
+    </div>
+
+    <div class="card" onclick="alert('Próximamente 🎸')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Elvis_Presley_Jailhouse_Rock.jpg">
+        <div class="name">Elvis Presley</div>
+    </div>
+
+</div>
+
+<div class="back">
+    <button onclick="volver()">⬅ Volver</button>
+</div>
+
+<script>
+
+// PARTICULAS
+for(let i=0;i<60;i++){
+    let p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*window.innerWidth+'px';
+    p.style.top=Math.random()*window.innerHeight+'px';
+    document.body.appendChild(p);
+
+    animate(p);
+}
+
+function animate(p){
+    let speed=Math.random()*0.5+0.2;
+    function move(){
+        let y=parseFloat(p.style.top);
+        y-=speed;
+        if(y<-10) y=window.innerHeight;
+        p.style.top=y+'px';
+        requestAnimationFrame(move);
+    }
+    move();
+}
+
+function volver(){
+    window.location.href='index.html';
+}
+
+function irMJ(){
+    window.location.href='Michael Jackson web.html';
+}
+
+</script>
+
+</body>
+</html>

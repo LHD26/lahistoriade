@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historia Mundial</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+    color: white;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.lista p {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    cursor: pointer;
+}
+
+.lista p:hover {
+    background-color: #ffffff20;
+}
+
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: none;
+    border: 1px solid #ccc;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Historia Mundial</h1>
+
+<div class="lista">
+    <p>Segunda Guerra Mundial</p>
+    <p>Dictadura Argentina</p>
+    <p>Revolución Francesa</p>
+</div>
+
+<button onclick="volver()">⬅ Volver</button>
+
+<script>
+function volver() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

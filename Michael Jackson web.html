@@ -691,11 +691,15 @@ section {
 @media (max-width: 768px) {
 
     #donacion-box {
-        width: 95%;
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
-        border-radius: 15px;
+        width: 90% !important;
+        max-width: 320px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        right: auto !important;
+        bottom: 10px !important;
+
+        padding: 12px !important;
+        box-sizing: border-box; /* 🔥 clave */
     }
 
 }

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 <meta charset="UTF-8">
+<meta name="viewport" 
+content="width=device-width, initial-scale=1.0">
 <title>Michael Jackson</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
@@ -356,26 +358,6 @@ h2 {
     flex: 1;
 }
 
-/* ===== RESPONSIVE (opcional pero pro) ===== */
-@media (max-width: 768px) {
-
-    .fila {
-        flex-direction: column;
-    }
-
-    .contenido {
-        flex-direction: column;
-    }
-
-    .img {
-        width: 100%;
-        height: auto;
-    }
-
-    .columna-albums {
-        align-items: center;
-    }
-}
 
 .fila-3 {
     display: flex;
@@ -593,8 +575,9 @@ section {
     .fila-3,
     .contenido,
     .final-contenido {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
+        display: flex;
     }
 
     /* 🔹 TEXTO */
@@ -618,7 +601,7 @@ section {
     /* 🔹 IMÁGENES GENERALES */
     img {
         max-width: 100%;
-        height: auto;
+        height: auto !important;
     }
 
     .img,
@@ -627,7 +610,7 @@ section {
     .img-izquierda,
     .col-img img {
         width: 100%;
-        height: auto;
+        height: auto !important;
     }
 
     /* 🔹 GALERÍAS */
@@ -674,6 +657,45 @@ section {
         width: 90%;
         right: 5%;
         bottom: 10px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #donacion-box {
+        width: 90%;
+        right: 5%;
+        bottom: 10px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #donacion-box p {
+        font-size: 13px;
+    }
+
+    .btn-donar {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #cerrar-donacion {
+        font-size: 20px;
+        top: 8px;
+        right: 12px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #donacion-box {
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        border-radius: 15px;
     }
 
 }

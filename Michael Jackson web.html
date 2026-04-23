@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Michael Jackson</title>
 
@@ -566,27 +566,114 @@ section {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* ========================= */
+/* 📱 RESPONSIVE REAL PRO */
+/* ========================= */
+
 @media (max-width: 768px) {
 
-    .fila-img {
-        flex-direction: column;
+    /* 🔹 PORTADA */
+    .contenedor-titulo {
+        top: 55%;
+        width: 90%;
     }
 
-    .columna-albums,
-    .img-derecha,
-    .columna-fotos,
-    .Galeria {
+    h1 {
+        font-size: 40px;
+    }
+
+    /* 🔹 SECCIONES */
+    .seccion {
+        padding: 0 20px;
+    }
+
+    /* 🔹 FILAS → TODO EN COLUMNA */
+    .fila,
+    .fila-img,
+    .fila-3,
+    .contenido,
+    .final-contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 🔹 TEXTO */
+    .texto,
+    .col-texto {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* 🔹 ALBUMS */
+    .columna-albums {
+        align-items: center;
         width: 100%;
     }
 
-    .titulo {
-        font-size: 30px;
-        text-align: center;
+    .album-container {
+        width: 80%;
+        max-width: 300px;
     }
 
+    /* 🔹 IMÁGENES GENERALES */
     img {
         max-width: 100%;
         height: auto;
+    }
+
+    .img,
+    .img-col,
+    .Imagenes-derecha,
+    .img-izquierda,
+    .col-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 🔹 GALERÍAS */
+    .galeria,
+    .galeria1,
+    .galeria2,
+    .imagenes-dobles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .galeria img,
+    .galeria1 img,
+    .galeria2 img,
+    .imagenes-dobles img {
+        width: 90%;
+        height: auto;
+    }
+
+    /* 🔹 IMÁGENES LADO */
+    .imagenes-lado img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 🔹 VIDEO */
+    .video iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    /* 🔹 TEXTO FINAL */
+    .texto-final {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .cta {
+        font-size: 20px;
+    }
+
+    /* 🔹 DONACIÓN */
+    #donacion-box {
+        width: 90%;
+        right: 5%;
+        bottom: 10px;
     }
 
 }

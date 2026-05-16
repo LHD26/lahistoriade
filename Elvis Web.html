@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvis Presley - El Rey del Rock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Tipografía y fondos globales */
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Animación estilo '68 Comeback Special para el Header */
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+                opacity: 1;
+            }
+            20%, 22%, 24%, 55% {
+                text-shadow: 0 0 2px #ff0000;
+                opacity: 0.8;
+            }
+        }
+        .comeback-neon {
+            color: #ffffff;
+            animation: neon-flicker 2.5s infinite alternate;
+        }
+
+        /* Efecto Glow Rojo General para Imágenes */
+        .glow-hover {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 25px 5px rgba(255, 0, 0, 0.85);
+            transform: scale(1.02);
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Efecto Textos Glow Rojo */
+        .text-glow-red {
+            color: #ff3333;
+            text-shadow: 0 0 10px rgba(255,0,0,0.8), 0 0 15px rgba(255,0,0,0.6);
+            font-weight: bold;
+        }
+
+        /* Links Glow Rojo */
+        .link-glow-red {
+            color: #ff4444;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #ff0000;
+            transition: all 0.2s;
+        }
+        .link-glow-red:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        }
+
+        /* Animación Álbum Flotante */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .album-animated {
+            animation: float 4s ease-in-out infinite;
+            border-radius: 8px;
+        }
+
+        /* Estilos del Modal */
+        #album-modal {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Texto base del artículo */
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        /* Ajustes de flotantes para que envuelvan bien el texto */
+        .wrap-left { float: left; margin: 0.5rem 1.5rem 1rem 0; width: 100%; max-width: 320px; }
+        .wrap-right { float: right; margin: 0.5rem 0 1rem 1.5rem; width: 100%; max-width: 320px; }
+        .wrap-center { display: block; margin: 2rem auto; width: 100%; max-width: 500px; text-align: center; clear: both;}
+
+        @media (max-width: 768px) {
+            .wrap-left, .wrap-right { float: none; margin: 1.5rem auto; display: block; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header con Fondo y Animación -->
+    <header class="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden border-b-4 border-red-900">
+        <!-- Imagen de fondo -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url('ELVIS-IMAGENES/fondo-header.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+        
+        <!-- Textos Centrales -->
+        <div class="relative z-10 text-center select-none">
+            <h1 class="text-7xl md:text-9xl font-extrabold uppercase tracking-widest comeback-neon mb-2">Elvis Presley</h1>
+            <h2 class="text-3xl md:text-5xl font-bold comeback-neon mt-4 tracking-wider">El Rey del Rock</h2>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-20">
+
+        <!-- SECCIÓN 1 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">Infancia, tragedia y los primeros años en Memphis (1935–1953)</h2>
+            
+            <p>La vida de Elvis Aaron Presley estuvo marcada por el contraste y la dualidad desde el primer segundo. Nació el 8 de enero de 1935 en Tupelo, Misisipi, en una humilde casa de madera de solo dos habitaciones construida por su padre. Su nacimiento vino acompañado de una profunda tragedia, ya que su hermano gemelo, Jesse Garon, nació muerto; una pérdida silenciosa que generó un vínculo extremadamente protector y casi simbiótico entre Elvis y su madre, Gladys. Por el contrario, la relación con su padre Vernon siempre fue distante y tensa, fracturada por la inestabilidad laboral y el trauma de 1938, cuando Vernon fue encarcelado por falsificar un cheque, hundiendo a la familia en una severa pobreza que el futuro artista jamás lograría olvidar.</p>
+            
+            <!-- Carrusel Derecha -->
+            <div class="wrap-right bg-zinc-900 rounded-lg p-2 border border-zinc-800">
+                <div class="carousel relative w-full overflow-hidden rounded glow-hover">
+                    <div class="carousel-track flex transition-transform duration-500">
+                        <img src="ELVIS-IMAGENES/elvis.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis infancia 1">
+                        <img src="ELVIS-IMAGENES/elvis2.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis infancia 2">
+                        <img src="ELVIS-IMAGENES/elvis3.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis infancia 3">
+                    </div>
+                    <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10094;</button>
+                    <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10095;</button>
+                </div>
+            </div>
+
+            <p>En medio de las dificultades económicas, el pequeño Elvis encontró su refugio en la música, profundamente impactado por los coros de las iglesias pentecostales y los sonidos del blues y el gospel afroamericano. A los diez años experimentó su primer destello de reconocimiento al ganar el segundo lugar en un concurso de talentos cantando "Old Shep", y un año después, en 1946, recibió su primera guitarra como regalo de cumpleaños. La mudanza familiar a Memphis en 1948, para vivir en complejos de vivienda pública como Lauderdale Courts, aceleró su metamorfosis musical.</p>
+
+            <!-- Carrusel Izquierda -->
+            <div class="wrap-left bg-zinc-900 rounded-lg p-2 border border-zinc-800">
+                <div class="carousel relative w-full overflow-hidden rounded glow-hover">
+                    <div class="carousel-track flex transition-transform duration-500">
+                        <img src="ELVIS-IMAGENES/elvis4.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis joven 1">
+                        <img src="ELVIS-IMAGENES/elvis5.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis joven 2">
+                        <img src="ELVIS-IMAGENES/elvis6.jpg" class="w-full h-auto object-cover shrink-0" alt="Elvis joven 3">
+                    </div>
+                    <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10094;</button>
+                    <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10095;</button>
+                </div>
+            </div>
+
+            <p>En la secundaria Humes High School, Elvis era visto como un chico tímido, respetuoso y un estudiante promedio, pero llamaba la atención de todos por sus largas patillas y sus ropas extravagantes inspiradas en la moda afroamericana de Beale Street. Ese choque cultural y estético dio sus primeros frutos en 1953 cuando, durante su último año escolar, participó en el festival de talentos de la escuela y causó una auténtica sensación que anticipaba el fenómeno que estaba por nacer.</p>
+        </section>
+
+        <!-- SECCIÓN 2 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">Sun Records, RCA y la explosión del Rock and Roll (1953–1957)</h2>
+            
+            <img src="ELVIS-IMAGENES/elvis7.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Sun Records">
+            
+            <p>Aquel mismo año de su graduación, impulsado por la curiosidad, Elvis entró a los estudios de Sun Records y pagó cuatro dólares para grabar un disco acetato personal con los temas "My Happiness" y "That’s When Your Heartaches Begin", originalmente pensado como un regalo para su madre. El dueño del sello, Sam Phillips, vio en aquel muchacho blanco la llave de oro que estaba buscando: una voz capaz de interpretar la emoción de la música negra. En 1954, junto al guitarrista Scotty Moore y el contrabajista Bill Black, registraron una versión eléctrica de "That’s All Right"</p>
+
+            <!-- Carrusel Izquierda -->
+            <div class="wrap-left bg-zinc-900 rounded-lg p-2 border border-zinc-800">
+                <div class="carousel relative w-full overflow-hidden rounded glow-hover">
+                    <div class="carousel-track flex transition-transform duration-500">
+                        <img src="ELVIS-IMAGENES/elvis8.jpg" class="w-full h-auto object-cover shrink-0" alt="Grabando 1">
+                        <img src="ELVIS-IMAGENES/elvis9.jpg" class="w-full h-auto object-cover shrink-0" alt="Grabando 2">
+                    </div>
+                    <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10094;</button>
+                    <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10095;</button>
+                </div>
+            </div>
+
+            <p>que revolucionó la radio local y llevó al locutor Dewey Phillips a coronarlo de inmediato como el nuevo <span class="text-glow-red">“Rey del Rock and Roll”</span>. Al año siguiente, su visionario e implacable mánager, el Coronel Tom Parker, negoció el traspaso de su contrato a la gigante RCA, desatando una locura global sin precedentes.</p>
+
+            <!-- Carrusel Centro/Derecha -->
+            <div class="wrap-right bg-zinc-900 rounded-lg p-2 border border-zinc-800">
+                <div class="carousel relative w-full overflow-hidden rounded glow-hover">
+                    <div class="carousel-track flex transition-transform duration-500">
+                        <img src="ELVIS-IMAGENES/elvis9.1.jpg" class="w-full h-auto object-cover shrink-0" alt="RCA 1">
+                        <img src="ELVIS-IMAGENES/elvis9.2.jpg" class="w-full h-auto object-cover shrink-0" alt="RCA 2">
+                    </div>
+                    <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10094;</button>
+                    <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-red-600 transition">&#10095;</button>
+                </div>
+            </div>
+
+            <p>El año 1956 consolidó su leyenda gracias al lanzamiento de su primer álbum de estudio, titulado homónimamente Elvis Presley (1956)</p>
+            
+            <!-- Álbum Animado -->
+            <div class="wrap-left text-center">
+                <img src="ELVIS-IMAGENES/elvis11.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('Elvis Presley (1956)', '23 de marzo de 1956', 'Más de 1 millón', 'Primer álbum de rock en alcanzar el número uno en la lista Billboard.', 'Disco de Oro y Platino')" alt="Album Elvis Presley">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>Lanzado el 23 de marzo, este disco hizo historia al convertirse en el primer álbum de rock en alcanzar el número uno en la lista Billboard, posición que mantuvo durante diez semanas consecutivas propulsado por hits como "Tutti Frutti" (<a href="https://youtu.be/zCulj2AbOGc?si=XtTbFP6U_C4EJZ-v" class="link-glow-red" target="_blank">Tutti Frutti</a>). Su salvaje forma de bailar, moviendo las caderas y las piernas, desató pánico moral y censura en la sociedad conservadora, obligando a los productores del prestigioso programa The Ed Sullivan Show a filmarlo únicamente de la cintura para arriba.</p>
+
+            <div class="wrap-center">
+                <img src="ELVIS-IMAGENES/elvis10.jpg" class="w-full rounded-lg glow-hover object-cover mb-4" alt="Ed Sullivan Show">
+            </div>
+
+            <p>Aprovechando el frenesí, el 19 de octubre de ese mismo año se publicó su segundo álbum de estudio, Elvis (1956)</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-right text-center">
+                <img src="ELVIS-IMAGENES/elvis12.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('Elvis (1956)', '19 de octubre de 1956', 'Disco de Platino', 'Marcó historia por su rapidez en ventas masivas.', 'Disco de Platino')" alt="Album Elvis 1956">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>, el cual certificó rápidamente el Disco de Platino y convirtió a Elvis en el <span class="text-glow-red">“primer artista de la historia en colocar dos álbumes de rock and roll en la cima de las listas el mismo año”</span>, sentando las bases del concepto moderno de un álbum musical de larga duración en una época dominada por los sencillos.</p>
+
+            <img src="ELVIS-IMAGENES/elvis13.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Jailhouse Rock">
+
+            <p>Su fama se volvió completamente imparable de cara al año siguiente, cuando no solo dio el salto definitivo al cine protagonizando la icónica película musical Jailhouse Rock (<a href="https://youtu.be/gj0Rz-uP4Mk?si=wOxZaASomxWT2MHI" class="link-glow-red" target="_blank">Jailhouse Rock</a>) sino que también revolucionó la industria discográfica navideña. El 15 de octubre de ese año vio la luz Elvis' Christmas Album (1957)</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-left text-center">
+                <img src="ELVIS-IMAGENES/elvis14.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('Elvis\' Christmas Album (1957)', '15 de octubre de 1957', 'Más de 20 millones de copias a nivel mundial', 'Disco navideño más vendido de la historia.', 'Disco de Diamante (Múltiple Platino)')" alt="Christmas Album">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>, una obra que se convirtió en <span class="text-glow-red">“el disco navideño más vendido de todos los tiempos a nivel mundial con más de 20 millones de copias”</span>. El álbum no estuvo exento de polémicas; el célebre compositor Irving Berlin se sintió tan ofendido por la interpretación sensual y rockera que Elvis hizo de su clásico "White Christmas" que intentó, sin éxito, que las emisoras de radio prohibieran su difusión por considerarla una profanación, lo que irónicamente disparó aún más las ventas y cimentó el mito del artista.</p>
+        </section>
+
+        <!-- SECCIÓN 3 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">Uniforme militar, pérdidas y el idilio en Alemania (1958–1960)</h2>
+            
+            <img src="ELVIS-IMAGENES/elvis15.jpg" class="wrap-left rounded-lg glow-hover object-cover" alt="Elvis Militar">
+
+            <p>En 1958, en la cima absoluta de su carrera, Elvis fue reclutado por el ejército de los Estados Unidos. Aunque era una superestrella, el Coronel Parker lo presionó para que sirviera como un soldado regular en lugar de unirse a los servicios de entretenimiento, una estrategia maestra para limpiar su imagen rebelde y ganarse el corazón del público más tradicional. Justo antes de partir a su destino en Alemania Occidental, dejó grabadas las canciones de la película King Creole (1958)</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-right text-center">
+                <img src="ELVIS-IMAGENES/elvis16.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('King Creole (1958)', 'Septiembre de 1958', 'Altamente comercial', 'Considerada su mejor interpretación actoral y vocal de los 50s.', 'Disco de Oro')" alt="King Creole Album">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>, una banda sonora editada en septiembre de ese año que es considerada unánimemente por la crítica como uno de sus mejores trabajos vocales y su interpretación actoral más sólida. Sin embargo, los aplausos se apagaron el 14 de agosto de 1958, cuando su madre Gladys falleció de hepatitis aguda</p>
+            
+            <div class="wrap-center">
+                <img src="ELVIS-IMAGENES/elvis17.jpg" class="w-full rounded-lg glow-hover object-cover" alt="Gladys Presley">
+            </div>
+
+            <p>La pérdida sumió a Elvis en una profunda depresión de la que él mismo admitiría que jamás se recuperó del todo; su refugio emocional se derrumbó y su sensibilidad cambió para siempre.</p>
+
+            <img src="ELVIS-IMAGENES/elvis18.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Priscilla Beaulieu">
+
+            <p>Durante su servicio militar en Alemania en 1959, y mientras el Coronel Parker mantenía viva su presencia en las listas de éxitos editando material de archivo pregrabado, la vida privada de Elvis dio otro vuelco definitivo. En una fiesta en su residencia de Bad Nauheim conoció a Priscilla Beaulieu, una adolescente de tan solo 14 años que era hija de un oficial de la Fuerza Aérea. A pesar de los diez años de diferencia y de las obvias restricciones, iniciaron un noviazgo intensamente protegido y controlado por el entorno de Elvis, sembrando la semilla de una relación que definiría la vida íntima del cantante durante la siguiente década.</p>
+        </section>
+
+        <!-- SECCIÓN 4 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">La jaula de oro de Hollywood y los refugios sagrados (1960–1967)</h2>
+            
+            <!-- Álbum Animado -->
+            <div class="wrap-left text-center">
+                <img src="ELVIS-IMAGENES/elvis19.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('Elvis Is Back! (1960)', 'Abril de 1960', 'Éxito mundial masivo', 'Marcó su triunfal retorno tras el servicio militar, explorando pop y blues.', 'Disco de Oro')" alt="Elvis is Back Album">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>A su regreso de Europa en 1960, el Rey demostró que su talento seguía intacto y maduro con el lanzamiento de Elvis Is Back! (1960) en el mes de abril, un álbum aclamado que exploraba el blues y el pop con una riqueza vocal renovada. No obstante, el éxito comercial de la película G.I. Blues y su respectiva banda sonora desviaron su carrera hacia una maquinaria cinematográfica repetitiva y alienante. Durante casi todos los años sesenta, Elvis quedó atrapado en un contrato leonino que lo obligaba a filmar hasta tres películas al año, todas con tramas idénticas y canciones genéricas de baja calidad. Aislado en su mansión de Graceland junto a su séquito de amigos, conocido como la "Mafia de Memphis"</p>
+
+            <img src="ELVIS-IMAGENES/elvis20.jpg" class="wrap-left rounded-lg glow-hover object-cover" alt="Mafia de Memphis">
+
+            <p>, Elvis cayó en una profunda frustración artística al ver cómo el rock evolucionaba de la mano de bandas como The Beatles mientras él quedaba relegado a un cine familiar comercial.</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-right text-center">
+                <img src="ELVIS-IMAGENES/elvis21.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('How Great Thou Art (1967)', 'Febrero de 1967', 'Excelente recepción especializada', 'Su obra espiritual más destacada de los 60s.', 'Premio Grammy al Mejor Álbum Sagrado')" alt="How Great Thou Art Album">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>En medio de ese estancamiento en Hollywood, los únicos momentos en los que el cantante lograba conectar con su verdadera pasión eran sus grabaciones de música espiritual. Tras años de críticas tibias por sus bandas sonoras, Elvis volvió a recibir los elogios de la prensa especializada gracias a How Great Thou Art (1967), un majestuoso álbum de gospel editado en febrero de ese año. Esta obra no solo supuso un bálsamo para su orgullo herido, sino que le otorgó el primer premio Grammy de su carrera. Unos meses después, el 1 de mayo de 1967, la presión de los estudios, del Coronel Parker y de la propia familia se materializó en su boda con Priscilla Beaulieu (<a href="https://youtu.be/P0TqUsMYSwk?si=A9vvzsNT0P6YKsiy" class="link-glow-red" target="_blank">boda con Priscilla Beaulieu</a>) en una meteórica ceremonia privada en Las Vegas que duró apenas ocho minutos, sellando un compromiso que pretendía devolver la estabilidad a su caótica vida personal.</p>
+        </section>
+
+        <!-- SECCIÓN 5 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">El renacimiento del Rey y el hito de los satélites (1968–1973)</h2>
+            
+            <img src="ELVIS-IMAGENES/elvis22.jpg" class="wrap-left rounded-lg glow-hover object-cover" alt="Lisa Marie Presley">
+
+            <p>El 1 de febrero de 1968 nació su única hija, Lisa Marie Presley, trayendo una inmensa alegría a su vida, pero el verdadero cambio radical de ese año ocurrió sobre los escenarios. Cansado de las películas mediocres, Elvis se plantó ante los productores de televisión y protagonizó el legendario especial navideño de la NBC, conocido como el '68 Comeback Special (<a href="https://youtu.be/_p40hCmR9Yg?si=Ta3JzF2UgpKjRZC8" class="link-glow-red" target="_blank">'68 Comeback Special</a>). Vestido con un icónico traje de cuero negro ajustado, sudando y cantando con una ferocidad salvaje en un escenario íntimo, demostró al mundo que el verdadero Rey del Rock and Roll estaba de vuelta</p>
+            
+            <img src="ELVIS-IMAGENES/elvis23.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Comeback Special">
+
+            <p>. Inspirado por esta catarsis, regresó a sus raíces para grabar en su tierra natal From Elvis in Memphis (1969)</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-left text-center">
+                <img src="ELVIS-IMAGENES/elvis24.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('From Elvis in Memphis (1969)', 'Junio de 1969', 'Múltiples éxitos globales', 'Considerada su obra maestra de madurez, fusionando soul, country y rock.', 'Aclamación crítica y Disco de Oro')" alt="From Elvis in Memphis">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>, un disco editado en junio que se convirtió en su obra maestra de madurez al fusionar de manera impecable el soul, el country y el rock, regalando al mundo himnos eternos de crítica social y romance como "In the Ghetto"(<a href="https://youtu.be/FJ-r0bilzhU?si=Htlb3fsJ7UHDVb3j" class="link-glow-red" target="_blank">In the Ghetto</a>) y "Suspicious Minds"(<a href="https://youtu.be/nvq_PY2Zcis?si=jelQiJ2SpuOj68C9" class="link-glow-red" target="_blank">Suspicious Minds</a>).</p>
+
+            <img src="ELVIS-IMAGENES/elvis25.jpg" class="wrap-left rounded-lg glow-hover object-cover" alt="Elvis Las Vegas">
+
+            <p>Los años setenta inauguraron su mítica e imponente era de residencias en Las Vegas, vistiendo los famosos monos de una pieza con capas enjoyadas. El punto culminante de esta espectacular etapa de conciertos multitudinarios llegó el 14 de enero de 1973 con el histórico concierto Aloha from Hawaii via Satellite (1973)"(<a href="https://youtu.be/a8Z5Y95dSjw?si=7_kmV4nWbGmfMyOG" class="link-glow-red" target="_blank">Aloha from Hawaii via Satellite</a>). Lanzado como álbum doble en febrero, este evento marcó un hito sin precedentes al ser la <span class="text-glow-red">“primera actuación de un artista solista transmitida en directo vía satélite a nivel mundial”</span>, alcanzando una audiencia estimada de más de mil millones de personas. Sin embargo, mientras su figura brillaba con la fuerza de un astro global, su vida íntima se desmoronaba por completo: ese mismo año se oficializó su traumático divorcio de Priscilla, un golpe emocional del que nunca se recuperaría y que aceleraría su declive físico y mental.</p>
+        </section>
+
+        <!-- SECCIÓN 6 -->
+        <section class="clearfix">
+            <h2 class="text-4xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-2">El aislamiento en Graceland y el último acorde (1974–1977)</h2>
+            
+            <img src="ELVIS-IMAGENES/elvis26.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Elvis Últimos años">
+
+            <p>A partir de 1974, la salud de Elvis entró en una espiral descendente alarmante. Consumido por la soledad de sus giras interminables y el dolor de su separación, se recluyó en las sombras de Graceland. Desarrolló un cuadro severo de insomnio crónico, glaucoma, colon irritable y problemas cardíacos, patologías que intentaba combatir mediante una dieta letal de comida rápida y una adicción destructiva a los medicamentos recetados. Médicos complacientes, encabezados por el polémico doctor George Nichopoulos, le suministraban dosis masivas de anfetaminas para tener energía en los shows, barbitúricos para conciliar el sueño y fuertes opiáceos para mitigar sus dolores crónicos. Sus conciertos se volvieron erráticos; el Rey lucía con un evidente sobrepeso, a veces arrastraba las palabras, olvidaba las letras de sus canciones más famosas o sufría colapsos en pleno escenario, dejando atónitos a sus seguidores.</p>
+
+            <!-- Álbum Animado -->
+            <div class="wrap-left text-center">
+                <img src="ELVIS-IMAGENES/elvis27.jpg" class="w-full rounded-lg glow-hover album-animated object-cover" onclick="openModal('Moody Blue (1977)', 'Julio de 1977', 'Más de 2 millones', 'El último álbum de estudio publicado en vida del artista.', 'Doble Disco de Platino')" alt="Moody Blue">
+                <span class="text-xs text-red-400 mt-2 block uppercase tracking-widest">(Clic para ver Info)</span>
+            </div>
+
+            <p>Toda la profunda melancolía, el dolor físico y el aislamiento emocional de sus últimos días quedaron inmortalizados en las sesiones de grabación hechas en el propio salón de su casa (la famosa Jungle Room), las cuales dieron forma a Moody Blue (1977), lanzado en julio de ese año. Este sería el último álbum publicado en vida del artista. Apenas unas semanas después de su lanzamiento, el 16 de agosto de 1977, su prometida Ginger Alden encontró al cantante inconsciente en el suelo del baño de su mansión. Elvis Presley fue declarado muerto a los 42 años de edad debido a un ataque cardíaco masivo, agravado de forma determinante por el cóctel de fármacos en su organismo.</p>
+
+            <img src="ELVIS-IMAGENES/elvis28.jpg" class="wrap-right rounded-lg glow-hover object-cover" alt="Funeral de Elvis">
+
+            <p>Su funeral en Memphis congregó a más de 80,000 personas en un luto colectivo e histórico, despidiendo al hombre pero inmortalizando para siempre al solista más vendido de la historia de la música y al mito absoluto de la cultura popular.</p>
+        </section>
+
+        <!-- SECCIÓN DE VIDEO FINAL -->
+        <section class="mt-16 pb-16 border-t-2 border-zinc-800 pt-16">
+            <a href="https://youtu.be/h1IafpQ-Rho?si=obQa5O1cyKnjH7Od" target="_blank" class="block relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden glow-hover group shadow-2xl">
+                <!-- Miniatura de Youtube -->
+                <img src="https://img.youtube.com/vi/h1IafpQ-Rho/maxresdefault.jpg" class="w-full h-auto object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300" alt="Video mas sobre Elvis">
+                
+                <!-- Overlay de Texto -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+                    <h3 class="text-3xl md:text-5xl font-bold text-white text-glow-red uppercase tracking-widest text-center transform transition duration-300 group-hover:scale-110">
+                        MAS SOBRE ELVIS PRESLEY AQUI
+                    </h3>
+                </div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- POP-UP MODAL (Información de los Álbumes) -->
+    <div id="album-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center backdrop-blur-sm p-4">
+        <div class="bg-zinc-900 border-2 border-red-800 rounded-xl max-w-lg w-full p-8 relative shadow-[0_0_40px_rgba(255,0,0,0.4)]">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold transition-colors">&times;</button>
+            <h3 id="modal-title" class="text-3xl font-bold text-red-500 mb-6 uppercase tracking-wider text-glow-red">Título Álbum</h3>
+            <ul class="space-y-4 text-lg text-gray-200">
+                <li><strong class="text-white">Lanzamiento:</strong> <span id="modal-release"></span></li>
+                <li><strong class="text-white">Ventas:</strong> <span id="modal-sales"></span></li>
+                <li><strong class="text-white">Récords:</strong> <span id="modal-records"></span></li>
+                <li><strong class="text-white">Premios:</strong> <span id="modal-awards" class="text-yellow-500 font-semibold"></span></li>
+            </ul>
+            <div class="mt-8 text-center">
+                <button onclick="closeModal()" class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors shadow-lg">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts para Carruseles y Modal -->
+    <script>
+        // Lógica para todos los carruseles de la página
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const images = track.querySelectorAll('img');
+            const prevBtn = carousel.querySelector('.prev-btn');
+            const nextBtn = carousel.querySelector('.next-btn');
+            
+            let currentIndex = 0;
+            const totalImages = images.length;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateCarousel();
+            });
+        });
+
+        // Lógica del Modal
+        const modal = document.getElementById('album-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalRelease = document.getElementById('modal-release');
+        const modalSales = document.getElementById('modal-sales');
+        const modalRecords = document.getElementById('modal-records');
+        const modalAwards = document.getElementById('modal-awards');
+
+        function openModal(title, release, sales, records, awards) {
+            modalTitle.textContent = title;
+            modalRelease.textContent = release;
+            modalSales.textContent = sales;
+            modalRecords.textContent = records;
+            modalAwards.textContent = awards;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Cerrar al hacer clic fuera del cuadro de contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <div id="donation-floating-widget" style="position: fixed; bottom: 20px; right: 20px; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); padding: 20px; width: 280px; font-family: Arial, sans-serif; z-index: 99999; border: 1px solid #e1e8ed; transition: all 0.3s ease;">
+    
+     <button onclick="document.getElementById('donation-floating-widget').style.display='none'" style="position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 18px; color: #a0aec0; cursor: pointer; font-weight: bold; line-height: 1; padding: 0;" aria-label="Cerrar">&times;</button>
+    
+     <h4 style="margin: 0 0 6px 0; color: #1a202c; font-size: 16px; font-weight: 700; padding-right: 15px;">¿Te gusta nuestro contenido?</h4>
+     <p style="margin: 0 0 16px 0; color: #4a5568; font-size: 13px; line-height: 1.4;">Apoyá el proyecto para que podamos seguir investigando y creando historias.</p>
+    
+     <a href="https://link.mercadopago.com.ar/lahistoriade" target="_blank" style="display: block; background: #009ee3; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: bold; margin-bottom: 8px; text-align: center; transition: background 0.2s;">
+        Donar con Mercado Pago
+     </a>
+    
+     <a href="https://paypal.me/AFMTorres" target="_blank" style="display: block; background: #003087; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: bold; text-align: center; transition: background 0.2s;">
+        Donar con PayPal
+     </a>
+    </div>
+
+</body>
+</html>
+
